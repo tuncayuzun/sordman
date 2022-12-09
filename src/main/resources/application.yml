@@ -1,0 +1,25 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /api/v1/sordman
+
+sordman:
+  http:
+    client:
+      timeout: 30
+
+## OpenApi Settings ##
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+    path: "/docs/swagger-ui.html"
+
+openapi:
+  app:
+    title: "Simple Order Management (Sordman) API"
+    description: "This project is a demo for simple order management that includes basic order operations. It is also capable of integrating  with third party payment gateway provider (PayPal) for payment."
+    version: 1.0
+    contact : "Contact Support"
+    email: "tuncay@talls.tech"
+    licence: "Sordman 1.0"
+    url: "https://www.talls.tech"
