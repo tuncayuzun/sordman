@@ -23,3 +23,14 @@ openapi:
     email: "tuncay@talls.tech"
     licence: "Sordman 1.0"
     url: "https://www.talls.tech"
+
+### LOCAL ###
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/sordman
+      uuid-representation: standard

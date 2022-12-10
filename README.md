@@ -8,9 +8,9 @@ Simple order management infrastructure for small projects.
 - Discount Management
 - Sales Order Management
 - Shopping Cart Management
-- Subscription Management
+- Subscription Management (Not Completed Yet)
 - Product Catalog Management
-- Payment Management
+- Payment Management (with Stripe - Not Implemented Yet)
 ```
 
 

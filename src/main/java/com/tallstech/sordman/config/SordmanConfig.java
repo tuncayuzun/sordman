@@ -32,9 +32,6 @@ import org.springframework.data.mongodb.core.convert.MongoConverter;
 @Configuration
 public class SordmanConfig {
 
-    @Value("${endpoint.get.customer}")
-    private String getCustomerUrl;
-
     @Bean(name = MONGO_TEMPLATE)
     @Primary
     public MongoTemplate mongoTemplate(MongoDatabaseFactory mongoDatabaseFactory, MongoConverter mongoConverter){
