@@ -30,6 +30,4 @@ jobs:
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
       - name: Build and Test
-        run: |
-          chmod +x mvnw
-          ./mvnw build
+        run: mvn --batch-mode --update-snapshots verify
