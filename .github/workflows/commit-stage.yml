@@ -48,3 +48,7 @@ jobs:
           min-coverage-overall: 80
           min-coverage-changed-files: 80
           title: Code Coverage
+      - name: Coverage Info
+        run: |
+          echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
+          echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
