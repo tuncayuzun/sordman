@@ -31,3 +31,24 @@ jobs:
           sarif_file: ${{ steps.scan.outputs.sarif }}
       - name: Build and Test
         run: mvn --batch-mode --update-snapshots verify
+      - name: Generate Coverage Report
+        run: |
+            mvn -B package --file pom.xml
+      - name: Upload Report
+        uses: 'actions/upload-artifact@v2'
+        with:
+          name: jacoco-report
+          path: ${{ github.workspace }}/target/site/jacoco/jacoco.xml
+      - name: Add coverage to PR
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.2
+        with:
+          paths: ${{ github.workspace }}/target/site/jacoco/jacoco.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 80
+          min-coverage-changed-files: 80
+          title: Code Coverage
+      - name: Coverage Info
+        run: |
+          echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
+          echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
