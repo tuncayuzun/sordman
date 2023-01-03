@@ -31,3 +31,11 @@ jobs:
           sarif_file: ${{ steps.scan.outputs.sarif }}
       - name: Build and Test
         run: mvn --batch-mode --update-snapshots verify
+      - name: Coverage Report
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.3
+        with:
+          paths: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 40
+          min-coverage-changed-files: 60
